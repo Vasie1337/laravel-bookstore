@@ -78,6 +78,29 @@ A modern web application for managing a bookstore, built with Laravel and Tailwi
    php artisan serve
    ```
 
+## Development Workflow
+
+To work effectively with this application:
+
+1. Run these two commands in separate terminal windows:
+   ```
+   # Terminal 1: Laravel development server
+   php artisan serve
+   
+   # Terminal 2: Vite development server (compiles assets)
+   npm run dev
+   ```
+
+2. If Tailwind CSS changes are not visible:
+   ```
+   # Clear Laravel caches
+   php artisan view:clear
+   php artisan config:clear
+   php artisan cache:clear
+   
+   # Hard refresh your browser (Ctrl+F5 or Cmd+Shift+R)
+   ```
+
 ## Default Users
 
 After seeding the database, two users will be created:
@@ -114,9 +137,3 @@ The application uses Tailwind CSS for styling. You can customize the theme by ed
 ## License
 
 [MIT License](LICENSE)
-
-## Acknowledgments
-
-- Laravel team for the incredible framework
-- Tailwind CSS for the utility-first CSS framework
-- All contributors to this project
