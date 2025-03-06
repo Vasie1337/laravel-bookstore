@@ -4,9 +4,11 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Book;
 
 Route::get('/', function () {
-    return view('welcome');
+    $featuredBooks = Book::inRandomOrder()->take(4)->get();
+    return view('welcome', compact('featuredBooks'));
 });
 
 // Books routes (public)
