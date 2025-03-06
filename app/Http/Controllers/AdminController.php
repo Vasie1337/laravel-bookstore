@@ -14,12 +14,28 @@ class AdminController extends Controller
         $userCount = User::where('role', 'user')->count();
         $bookCount = Book::count();
         
-        return view('admin.dashboard', compact('userCount', 'bookCount'));
+        // Add order count - assuming we might have an Order model
+        $orderCount = 0;
+        
+        return view('admin.dashboard', compact('userCount', 'bookCount', 'orderCount'));
     }
     
-    public function users()
+    public function users(Request $request)
     {
-        $users = User::where('role', 'user')->get();
+        $query = User::where('role', 'user');
+        
+        // Apply search if provided
+        if ($request->has('search') && $request->search) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('email', 'like', "%{$search}%");
+            });
+        }
+        
+        // Get users with pagination
+        $users = $query->latest()->paginate(10);
+        
         return view('admin.users', compact('users'));
     }
     
