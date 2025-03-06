@@ -16,12 +16,18 @@
                             <h4 class="font-bold">Total Users</h4>
                             <p class="text-2xl">{{ $userCount }}</p>
                         </div>
-                        <!-- Add more stats cards here -->
+                        <div class="bg-green-100 p-4 rounded-lg">
+                            <h4 class="font-bold">Total Books</h4>
+                            <p class="text-2xl">{{ $bookCount }}</p>
+                        </div>
                     </div>
                     
-                    <div class="mt-6">
+                    <div class="mt-6 flex space-x-4">
                         <a href="{{ route('admin.users') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                             Manage Users
+                        </a>
+                        <a href="{{ route('admin.books') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                            Manage Books
                         </a>
                     </div>
                 </div>
