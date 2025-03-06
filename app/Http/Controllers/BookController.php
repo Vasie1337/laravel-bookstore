@@ -41,8 +41,8 @@ class BookController extends Controller
         ]);
         
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('public/books');
-            $validated['image'] = str_replace('public/', '', $path);
+            $path = $request->file('image')->store('books', 'public');
+            $validated['image'] = $path;
         }
         
         Book::create($validated);
@@ -84,11 +84,11 @@ class BookController extends Controller
         if ($request->hasFile('image')) {
             // Delete old image if exists
             if ($book->image) {
-                Storage::delete('public/' . $book->image);
+                Storage::disk('public')->delete($book->image);
             }
             
-            $path = $request->file('image')->store('public/books');
-            $validated['image'] = str_replace('public/', '', $path);
+            $path = $request->file('image')->store('books', 'public');
+            $validated['image'] = $path;
         }
         
         $book->update($validated);
@@ -103,7 +103,7 @@ class BookController extends Controller
     {
         // Delete the image if exists
         if ($book->image) {
-            Storage::delete('public/' . $book->image);
+            Storage::disk('public')->delete($book->image);
         }
         
         $book->delete();

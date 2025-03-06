@@ -5,6 +5,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Book;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     $featuredBooks = Book::inRandomOrder()->take(4)->get();
@@ -18,7 +19,10 @@ Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show')
 // Default auth routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        if (Auth::user() && Auth::user()->role === 'admin') {
+            return redirect()->route('admin.dashboard');
+        }
+        return redirect()->route('books.index');
     })->name('dashboard');
     
     // Profile routes

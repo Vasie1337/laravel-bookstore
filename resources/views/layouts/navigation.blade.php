@@ -23,6 +23,9 @@
                         <x-nav-link :href="route('admin.users')" :active="request()->routeIs('admin.users')">
                             {{ __('Manage Users') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('admin.books')" :active="request()->routeIs('admin.books')">
+                            {{ __('Manage Books') }}
+                        </x-nav-link>
                     @endif
                 </div>
             </div>
@@ -93,6 +96,9 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('admin.users')" :active="request()->routeIs('admin.users')">
                     {{ __('Manage Users') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.books')" :active="request()->routeIs('admin.books')">
+                    {{ __('Manage Books') }}
                 </x-responsive-nav-link>
             @endif
         </div>
