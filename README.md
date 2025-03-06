@@ -26,11 +26,7 @@ A modern web application for managing a bookstore, built with Laravel and Tailwi
 
 ## Installation
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/bookstore.git
-   cd bookstore
-   ```
+1. Clone the repository
 
 2. Install PHP dependencies:
    ```
@@ -65,6 +61,7 @@ A modern web application for managing a bookstore, built with Laravel and Tailwi
 
 7. Run migrations and seed the database:
    ```
+   php artisan migrate
    php artisan migrate --seed
    ```
 
@@ -73,10 +70,17 @@ A modern web application for managing a bookstore, built with Laravel and Tailwi
    php artisan storage:link
    ```
 
-9. Start the development server:
+9. Copy sample book images to the public directory:
+   ```
+   php artisan books:copy-sample-images
+   ```
+
+10. Start the development server:
    ```
    php artisan serve
    ```
+
+11. Visit `http://localhost:8000` in your browser
 
 ## Development Workflow
 
