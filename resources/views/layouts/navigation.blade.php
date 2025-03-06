@@ -62,9 +62,9 @@
                 </x-dropdown>
             </div>
             @else
-            <div class="hidden sm:flex sm:items-center sm:ms-6 space-x-4">
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 hover:text-gray-900">{{ __('Log In') }}</a>
-                <a href="{{ route('register') }}" class="text-sm text-gray-700 hover:text-gray-900">{{ __('Register') }}</a>
+            <div class="hidden sm:flex sm:items-center sm:ms-6">
+                <a href="{{ route('login') }}" class="text-sm text-gray-700 hover:text-gray-900 px-3 py-2">{{ __('Log In') }}</a>
+                <a href="{{ route('register') }}" class="text-sm text-gray-700 hover:text-gray-900 px-3 py-2">{{ __('Register') }}</a>
             </div>
             @endauth
 
