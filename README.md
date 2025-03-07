@@ -33,46 +33,46 @@ A modern web application for managing a bookstore, built with Laravel and Tailwi
    composer install
    ```
 
-3. Install and compile frontend dependencies:
-   ```
-   npm install
-   npm run dev
-   ```
-
-4. Create a copy of the `.env` file:
+3. Create a copy of the `.env` file:
    ```
    cp .env.example .env
    ```
 
-5. Generate an application key:
+4. Generate an application key:
    ```
    php artisan key:generate
    ```
 
-6. Configure your database in the `.env` file:
+5. Configure your database in the `.env` file:
    ```
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
    DB_PORT=3306
-   DB_DATABASE=bookstore
+   DB_DATABASE=bookstore_db
    DB_USERNAME=root
    DB_PASSWORD=
    ```
 
-7. Run migrations and seed the database:
+6. Run migrations and seed the database:
    ```
    php artisan migrate
    php artisan migrate --seed
    ```
 
-8. Create a symbolic link for storage:
+7. Create a symbolic link for storage:
    ```
    php artisan storage:link
    ```
 
-9. Copy sample book images to the public directory:
+8. Copy sample book images to the public directory:
    ```
    php artisan books:copy-sample-images
+   ```
+
+9. Install and compile frontend dependencies:
+   ```
+   npm install
+   npm run dev
    ```
 
 10. Start the development server:

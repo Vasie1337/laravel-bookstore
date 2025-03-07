@@ -19,7 +19,7 @@ Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show')
 // Default auth routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
-        if (Auth::user() && Auth::user()->role === 'admin') {
+        if (Auth::user() && Auth::user()->isAdmin()) {
             return redirect()->route('admin.dashboard');
         }
         return redirect()->route('books.index');
