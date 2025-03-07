@@ -115,7 +115,7 @@ After seeding the database, two users will be created:
    - Role: admin
 
 2. Regular User:
-   - Email: user@bookstore.com
+   - Email: user@example.com
    - Password: password
    - Role: user
 

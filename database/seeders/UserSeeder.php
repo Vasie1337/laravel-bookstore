@@ -22,8 +22,8 @@ class UserSeeder extends Seeder
         
         // Create a regular user for testing
         User::create([
-            'name' => 'Regular User',
-            'email' => 'user@bookstore.com',
+            'name' => 'Example User',
+            'email' => 'user@example.com',
             'password' => Hash::make('password'),
             'role' => 'user',
         ]);
